@@ -12,6 +12,9 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl.recovery \
     android.hardware.boot@1.2-service
 
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
+
 PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
@@ -100,6 +103,36 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.target.wigig.rc \
     init.recovery.qcom.rc \
+
+# Display
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.display.composer-service
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4.vendor \
+    android.hardware.drm@1.4-service.clearkey \
+    libclearkeycasplugin.vendor
+
+# fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.1-impl-mock \
+    fastbootd
+    
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    hostapd \
+    libwpa_client \
+    libwifi-hal:64 \
+    libwifi-hal-ctrl \
+    libwifi-hal-qcom \
+    vendor.qti.hardware.fstman@1.0.vendor:64 \
+    vendor.qti.hardware.wifi.hostapd@1.2.vendor \
+    vendor.qti.hardware.wifi.supplicant@2.2.vendor \
+    WifiResCommon \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.qcom
