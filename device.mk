@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # API levels
-BOARD_API_LEVEL := 30
+# BOARD_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 30
 
 # fastbootd
@@ -118,7 +118,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
-    
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -142,4 +142,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/lenovo/beerus/berus-vendor.mk)
+$(call inherit-product, vendor/lenovo/beerus/beerus-vendor.mk)
