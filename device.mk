@@ -8,9 +8,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
+    android.hardware.bluetooth.audio@2.1-impl \
+    android.hardware.boot@1.1-impl-qti \
+    android.hardware.boot@1.1-impl-qti.recovery \
+    android.hardware.boot@1.1-service
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
@@ -109,10 +110,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer-service
 
 # DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor \
-    android.hardware.drm@1.4-service.clearkey \
-    libclearkeycasplugin.vendor
+# PRODUCT_PACKAGES += \
+#     android.hardware.drm@1.4.vendor \
+#     android.hardware.drm@1.4-service.clearkey \
+#     libclearkeycasplugin.vendor
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -125,14 +126,15 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwpa_client \
     libwifi-hal:64 \
-    libwifi-hal-ctrl \
-    libwifi-hal-qcom \
     vendor.qti.hardware.fstman@1.0.vendor:64 \
     vendor.qti.hardware.wifi.hostapd@1.2.vendor \
     vendor.qti.hardware.wifi.supplicant@2.2.vendor \
-    WifiResCommon \
     wpa_supplicant \
     wpa_supplicant.conf
+
+    # WifiResCommon \
+    # libwifi-hal-ctrl \
+    # libwifi-hal-qcom \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.qcom
