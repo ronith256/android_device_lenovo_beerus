@@ -4,6 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+TARGET_IS_VAB := true
+
+PRODUCT_IS_TABLET := true
+
+PRODUCT_IS_ATV := true
+
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
@@ -15,6 +21,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
+
+ifeq ($(PRODUCT_IS_ATV),true)
+    PRODUCT_PACKAGES += \
+        android.hardware.tv.input@1.0-impl
+endif
 
 PRODUCT_PACKAGES += \
     update_engine \
@@ -141,7 +152,7 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/lenovo/beerus/beerus-vendor.mk)

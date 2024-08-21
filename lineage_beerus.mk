@@ -6,10 +6,12 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, device/google/atv/products/atv_base.mk)
+
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_tv.mk)
 
 # Inherit from beerus device
 $(call inherit-product, device/lenovo/beerus/device.mk)
